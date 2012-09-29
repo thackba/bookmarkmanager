@@ -1,0 +1,29 @@
+@(bookmarks: List[models.Bookmark])(implicit l: Lang)
+
+@if(!bookmarks.isEmpty){
+@bookmarks.map { bookmark =>
+<tr>
+    <td>
+        <a href="@bookmark.url" title="@bookmark.description" class="showtooltip" target="_blank">
+            @bookmark.name
+        </a>
+    </td>
+    <td>
+        <a href="@routes.BookmarkController.editBookmark(bookmark.id)" class="btn btn-mini"
+           title='@Messages("page.listBookmarksAjax.edit")'><i class="icon-pencil"></i>
+        </a>
+    </td>
+    <td>
+        <a href="javascript:deleting(@bookmark.id)" class="btn btn-mini btn-danger"
+           title='@Messages("page.listBookmarksAjax.delete")'><i class="icon-trash icon-white"></i>
+        </a>
+    </td>
+</tr>
+}
+} else {
+<tr>
+    <td>@Messages("page.listBookmarksAjax.empty")</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+}

@@ -1,0 +1,30 @@
+@(bookmarkForm: Form[models.Bookmark])(implicit l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("editBookmark", Messages("page.editBookmark.title"))) {
+<div class="row-fluid">
+    <div class="span9">
+        <div class="row-fluid">
+            @helper.form(action = routes.BookmarkController.saveBookmark, 'class -> "form-horizontal") {
+            <fieldset>
+                <legend>@Messages("page.editBookmark.title")</legend>
+                @components.globalError(bookmarkForm)
+                @components.hiddenField(bookmarkForm("id"))
+                @components.hiddenField(bookmarkForm("owner"))
+                @components.textField(bookmarkForm("name"), required=true, length=192)
+                @components.textField(bookmarkForm("url"), required=true, length=192)
+                @components.textArea(bookmarkForm("description"))
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">@Messages("page.editBookmark.action")</button>
+                    <a href='@routes.BookmarkController.listBookmarks' class="btn">
+                        @Messages("app.cancel")
+                    </a>
+                </div>
+            </fieldset>
+            }
+        </div>
+    </div>
+    <div class="span3">
+        @sides.personalPanel()
+    </div>
+</div>
+}

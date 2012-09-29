@@ -1,0 +1,67 @@
+@()(implicit r: RequestHeader, l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("listBookmark", Messages("page.listBookmarks.title"))) {
+<div class="row-fluid">
+    <div class="span9">
+        <div class="row-fluid">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>@Messages("page.listBookmarks.title")</th>
+                    <th style="width: 15px;">&nbsp;</th>
+                    <th style="width: 15px;">
+                        <a href="@routes.BookmarkController.addBookmark" class="btn btn-mini btn-success"
+                           title='@Messages("page.listBookmarks.add")'><i class="icon-plus icon-white"></i></a>
+                    </th>
+                </tr>
+                </thead>
+                <tbody id="bookmarkTable">
+                <tr>
+                    <td><img src='@routes.Assets.at("images/ajax-loader.gif")' id="loader" alt="Loader"/></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" src='@routes.Assets.at("bootstrap/js/jqoverlay.js")'></script>
+        <script type="text/javascript" src='@routes.Assets.at("bootstrap/js/jquery.tooltip.min.js")'></script>
+        @helper.javascriptRouter("jsRoutes")(
+        routes.javascript.BookmarkController.listBookmarksAjax,
+        routes.javascript.BookmarkController.deleteBookmark
+        )
+        <script type="text/javascript" charset="utf-8">
+            var loading = function () {
+                jsRoutes.controllers.BookmarkController.listBookmarksAjax().ajax({
+                            success:function (data) {
+                                $("#bookmarkTable").empty();
+                                $("#bookmarkTable").append(data);
+                                $(".showtooltip").tooltip({
+                                    showURL: true
+                                });
+                                $.overlay.hide();
+                            },
+                            error:function () {
+                                $.overlay.hide();
+                            }
+                        }
+                )
+            };
+            var deleting = function (data) {
+                if (confirm(unescape('@Messages("page.listBookmarks.deleteQuest")'))) {
+                    jsRoutes.controllers.BookmarkController.deleteBookmark(data).ajax({
+                        success:function (data) {
+                            loading();
+                        }
+                    });
+                }
+            }
+            loading()
+        </script>
+    </div>
+    <div class="span3">
+        @sides.personalPanel()
+    </div>
+</div>
+}
+

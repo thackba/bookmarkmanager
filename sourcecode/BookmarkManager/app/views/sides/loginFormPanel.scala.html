@@ -1,0 +1,25 @@
+@()(implicit l:Lang)
+
+@import components._
+
+<div class="row-fluid">
+    <div class="span12">
+        @helper.form(action = routes.LoginController.loginAction, 'class -> "well") {
+
+        @textField(LoginController.loginForm("username"), "span12")
+        @passwordField(LoginController.loginForm("password"), "span12")
+
+        <button type="submit" class="btn btn-primary">@Messages("page.login.action")</button>
+
+        <div style="margin-top: 25px;">
+            <a href="@routes.RegistrationController.register">@Messages("link.register")</a>
+        </div>
+        }
+    </div>
+    <script>
+        var setLoginFocus = function() {
+            $('#username').focus();
+        }
+        setLoginFocus();
+    </script>
+</div>

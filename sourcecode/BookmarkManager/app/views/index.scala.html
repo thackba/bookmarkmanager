@@ -1,0 +1,16 @@
+@()(implicit l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("index", Messages("page.index.title"))) {
+<div class="row-fluid" xmlns="http://www.w3.org/1999/html">
+    <div class="span9">
+        <div class="hero-unit">
+            <h1>@Messages("page.index.headline")</h1>
+
+            <p>@Messages("page.index.info")</p>
+        </div>
+    </div>
+    <div class="span3">
+        @sides.loginFormPanel()
+    </div>
+</div>
+}

@@ -1,0 +1,57 @@
+@(info: models.TemplateInfo)(content: Html)(implicit l: Lang, account: Option[Account])
+
+<html lang="@l.code">
+<head>
+    <meta charset="utf-8">
+    <title>@Messages("app.title") - @info.title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href='@routes.Assets.at("images/favicon.png")'>
+    <link rel="stylesheet" href='@routes.Assets.at("bootstrap/css/bootstrap.min.css")'>
+    <link rel="stylesheet" href='@routes.Assets.at("bootstrap/css/jquery.tooltip.css")'>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+    </style>
+    <script type="text/javascript" src='@routes.Assets.at("bootstrap/js/jquery-1.7.1.min.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("bootstrap/js/bootstrap.min.js")'></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="@routes.BookmarkController.listBookmarks">@Messages("app.title")</a>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    @content
+
+    <div class="row-fluid">
+        <hr/>
+        <footer>
+            <p style="text-align: right">
+                &copy; @Messages("app.title") 2012
+            </p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>

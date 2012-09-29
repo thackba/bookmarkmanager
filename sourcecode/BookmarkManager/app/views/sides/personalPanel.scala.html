@@ -1,0 +1,17 @@
+@()(implicit l: Lang, account: Option[Account])
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="well">
+            <h4>@account.get.forename (@account.get.username)</h4>
+
+            <p></p>
+
+            <p>
+                <a href="@routes.LoginController.logout">
+                    @Messages("link.logout")
+                </a>
+            </p>
+        </div>
+    </div>
+</div>

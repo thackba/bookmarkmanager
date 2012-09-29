@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.BookmarkController.listBookmarks
+GET     /listCall                   controllers.BookmarkController.listBookmarksAjax
+GET     /add                        controllers.BookmarkController.addBookmark
+GET     /edit/$id<[0-9]+>           controllers.BookmarkController.editBookmark(id: Long)
+GET     /delete/$id<[0-9]+>         controllers.BookmarkController.deleteBookmark(id: Long)
+POST    /save                       controllers.BookmarkController.saveBookmark
+
+# Registration
+
+GET     /register                   controllers.RegistrationController.register
+POST    /register                   controllers.RegistrationController.registerAction
+GET     /registered                 controllers.RegistrationController.registered
+GET     /activate/:token            controllers.RegistrationController.activate(token: String)
+POST    /activate/:token            controllers.RegistrationController.activateAction(token: String)
+GET     /activated                  controllers.RegistrationController.activated
+
+# Login
+
+GET     /login                      controllers.LoginController.login
+POST    /login                      controllers.LoginController.loginAction
+GET     /logout                     controllers.LoginController.logout
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -1,0 +1,12 @@
+@(field: Field, className: String = "span9", required: Boolean = false, length: Int = 48)(implicit l: Lang)
+
+<div class="control-group @if(field.hasErrors) {error}">
+    <label class="control-label" for="@field.id">@Messages("field."+field.name) @if(required){*}</label>
+
+    <div class="controls">
+        <input id="@field.id" name="@field.name" class="@className" type="text" value="@field.value" maxlength="@length">
+        @if(field.hasErrors) {
+        <p class="help-inline">@{val error = field.error.get; val param = if(error.args.size>0) {error.args(0)} else {""}; Messages(error.message,param)}</p>
+        }
+    </div>
+</div>

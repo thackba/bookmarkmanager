@@ -1,0 +1,70 @@
+app.cancel=Abbrechen
+app.required=Felder, die mit einem * markiert sind, müssen ausgefüllt werden.
+app.title=BookmarkManager
+
+error.email=Bitte gebe hier eine gültige E-Mailadresse ein.
+error.login=Du konntest nicht angemeldet werden. Bitte überprüfe den Benutzernamen und das Passwort.
+error.maxLength=Bitte gebe hier maximal {0} Zeichen ein.
+error.minLength=Bitte gebe hier mindestens {0} Zeichen ein.
+error.userExist=Der gewünschte Benutzername ist bereits vergeben.
+error.required=Bitte gebe hier einen Wert ein.
+error.passwordNotEqual=Die Passwörter stimmen nicht überein.
+error.username=Der Benutzername darf nur Buchenstaben und Zahlen enthalten.
+error.name=Namen dürfen nur Buchstaben und das Leerzeichen enthalten.
+error.terms=Die AGBs müssen bestätigt werden.
+error.description=Die Beschreibung ist leider zu lang.
+error.unknown=Es ist ein unbekannter Fehler aufgetreten.
+error.url=Die Adresse muss mit http:// oder https:// beginnen.
+
+field.description=Beschreibung
+field.email=E-Mail
+field.forename=Vorname
+field.name=Name
+field.password=Passwort
+field.passwordRepeat=Passwort wiederholen
+field.surname=Nachname
+field.terms=Hier mit akzeptiere ich die <a href="#">AGBs</a> der ...
+field.url=URL
+field.username=Benutzername
+
+link.register=Benutzer registrieren
+link.login=Anmelden
+link.logout=Abmelden
+
+page.activate.action=Benutzer aktivieren
+page.activate.info=Informationen
+page.activate.info.long=Dies ist der letzte Schritt, um deinen Benutzer anzulegen. Bitte gebe hier zweimal dein neues BookmarkManager-Passwort ein. Mit diesem Passwort und deinem Benutzernamen kannst du dich dann in Zukunft bei BookMarkmanager anmelden.
+page.activate.title=Benutzeraktivierung
+
+page.activated.info=<p>Du hast deinen Benutzer erfolgreich aktiviert und kannst dich ab sofort mit dem Benutzer anmelden.</p>
+page.activated.title=Aktivierung abgeschlossen
+
+page.activateError.info=Der angegebene Aktivierungscode ist leider ungültig.
+page.activateError.title=Fehler bei der Aktivierung
+
+page.editBookmark.action=Bookmark speichern
+page.editBookmark.title=Bookmark bearbeiten
+
+page.index.headline=BookmarkManager
+page.index.info=Ein Tool zum Speichern von Bookmarks
+
+page.listBookmarks.add=Bookmark hinzufügen
+page.listBookmarks.title=Bookmarks
+page.listBookmarks.deleteQuest=Soll der Bookmark wirklich gel%F6scht werden?
+
+page.listBookmarksAjax.edit=Bearbeiten
+page.listBookmarksAjax.empty=Noch keine Bookmarks vorhanden.
+page.listBookmarksAjax.delete=Löschen
+
+page.login.action=Anmelden
+page.login.info=Informationen
+page.login.info.long=Hier kannst du dich mit einem existierenden Benutzernamen und dem entsprechenden Passwort anmelden. Wenn du noch keinen Benutzer angelegt hast, kannst du dies auf der <a href="/register">Registrierungseite</a> tun.
+page.login.title=Anmeldung
+
+page.register.action=Benutzer registrieren
+page.register.info=Informationen
+page.register.info.long=Auf dieser Seite kannst du in zwei einfachen Schritten einen neuen Benutzer anlegen. Nachdem du das Formular auf der linken Seite ausgefüllt hast, bekommst du eine Mail mit einem Link. Dieser führt dich dann auf eine Seite, auf der du ein Passwort vergeben kannst. Und schon ist der Account fertig.
+page.register.title=Registrierung
+
+page.registered.info=<p>Hallo {0}!</p><p>Du hast die Registrierung für den Benutzernamen {1} erfolgrich abgeschlossen.<br/>In wenigen Minuten bekommst du eine E-Mail mit einem Link zu einer Seite, auf der du deinen Benutzer aktivieren und ein Passwort festlegen kannst.</p>
+page.registered.title=Registrierung abgeschlossen

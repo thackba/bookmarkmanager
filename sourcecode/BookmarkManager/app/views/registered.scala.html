@@ -1,0 +1,22 @@
+@(registered: models.Registration)(implicit l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("registered", Messages("page.registered.title"))) {
+<div class="row-fluid">
+    <div class="span9">
+        <div class="page-header">
+            <h2>@Messages("page.registered.title")</h2>
+        </div>
+        <div>
+            @Html(Messages("page.registered.info",registered.forename,registered.username))
+        </div>
+        @if(play.api.Play.current.mode==play.api.Mode.Dev) {
+        <div>
+            <a href="@routes.RegistrationController.activate(registered.surname)">debug activate</a>
+        </div>
+        }
+    </div>
+    <div class="span3">
+        @sides.loginFormPanel()
+    </div>
+</div>
+}

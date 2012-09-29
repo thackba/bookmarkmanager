@@ -1,0 +1,10 @@
+@(field: Field, className: String = "span9", required: Boolean = false)(implicit l: Lang)
+
+<div class="control-group @if(field.hasErrors) {error}">
+    <div class="controls">
+        <label class="checkbox">
+            <input id="@field.id" name="@field.name" type="checkbox" value="true" @(if(field.value == Some("true")) "checked" else "") />
+            @Html(Messages("field."+field.name))
+        </label>
+    </div>
+</div>

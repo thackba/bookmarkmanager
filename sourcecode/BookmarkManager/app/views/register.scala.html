@@ -1,0 +1,26 @@
+@(aForm: Form[models.Registration])(implicit l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("register", Messages("page.register.title"))) {
+<div class="row-fluid">
+    <div class="span9">
+        <div class="row-fluid">
+            @helper.form(action = routes.RegistrationController.registerAction, 'class -> "form-horizontal") {
+            <fieldset>
+                <legend>@Messages("page.register.title")</legend>
+                @components.globalError(aForm)
+                @components.textField(aForm("username"), required=true)
+                @components.textField(aForm("email"), required=true)
+                @components.textField(aForm("forename"), required=true)
+                @components.textField(aForm("surname"))
+                @components.checkBox(aForm("terms"))
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">@Messages("page.register.action")</button>
+                    <a href="@routes.LoginController.login" class="btn">@Messages("app.cancel")</a>
+                </div>
+            </fieldset>
+            }
+        </div>
+    </div>
+    @sides.infoBox("page.register.info")
+</div>
+}

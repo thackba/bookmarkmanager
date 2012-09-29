@@ -1,0 +1,22 @@
+@(token: String, aForm: Form[models.Activation])(implicit l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("activate", Messages("page.activate.title"))) {
+<div class="row-fluid">
+    <div class="span9">
+        <div class="row-fluid">
+            @helper.form(action = routes.RegistrationController.activateAction(token), 'class -> "form-horizontal") {
+            <fieldset>
+                <legend>@Messages("page.activate.title")</legend>
+                @components.globalError(aForm)
+                @components.passwordField(aForm("password"), required=true)
+                @components.passwordField(aForm("passwordRepeat"), required=true)
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">@Messages("page.activate.action")</button>
+                </div>
+            </fieldset>
+            }
+        </div>
+    </div>
+    @sides.infoBox("page.activate.info")
+</div>
+}

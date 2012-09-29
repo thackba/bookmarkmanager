@@ -1,0 +1,22 @@
+@(aForm: Form[models.Login])(implicit l: Lang, account: Option[Account])
+
+@template.template(models.TemplateInfo("login", Messages("page.login.title"))) {
+<div class="row-fluid">
+    <div class="span9">
+        <div class="row-fluid">
+            @helper.form(action = routes.LoginController.loginAction, 'class -> "form-horizontal") {
+            <fieldset>
+                <legend>@Messages("page.login.title")</legend>
+                @components.globalError(aForm)
+                @components.textField(aForm("username"), required=true)
+                @components.passwordField(aForm("password"), required=true)
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">@Messages("page.login.action")</button>
+                </div>
+            </fieldset>
+            }
+        </div>
+    </div>
+    @sides.infoBox("page.login.info")
+</div>
+}

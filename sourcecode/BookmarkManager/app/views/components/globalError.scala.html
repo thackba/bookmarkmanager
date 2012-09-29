@@ -1,0 +1,7 @@
+@(aForm: Form[_])(implicit l: Lang)
+
+@if(aForm.hasGlobalErrors) {
+<div class="alert alert-error">
+    @Messages(aForm.globalError.get.message)
+</div>
+}

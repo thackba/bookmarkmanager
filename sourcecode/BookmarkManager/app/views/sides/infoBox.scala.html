@@ -1,0 +1,11 @@
+@(info: String)(implicit l: Lang)
+
+<div class="span3">
+    <div class="well">
+        <h3 style="margin-bottom: 25px;">@Messages(info)</h3>
+
+        <p style="margin-bottom: 25px;">@Html(Messages(info+".long"))</p>
+
+        <p>@Messages("app.required")</p>
+    </div>
+</div>
